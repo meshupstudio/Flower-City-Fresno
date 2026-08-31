@@ -1,57 +1,61 @@
-# Flower City Fresno — Website
+# Flower City Chinese Restaurant — Website
 
-A static, no-build website for Flower City Fresno (local florist), ready to
-deploy on Netlify.
+A static, no-build website for **Flower City Chinese Restaurant** (Fresno, CA),
+rebuilt from the previous site export and ready to deploy on Netlify.
 
 ## Status
 
-This is a **fresh rebuild**, not a byte-for-byte copy of the live
-flowercityfresno.com site — this environment's network policy blocks direct
-access to that domain, so it couldn't be scraped/cloned automatically. The
-layout, copy, colors, and images below are placeholders in the same spirit
-(local florist, warm/floral branding) so the structure is ready to receive
-the real content.
+This is a rebuild sourced from a real export of the live site (previously
+hosted on Duda, whose platform-specific build can't run outside its own
+infrastructure). Branding, colors, fonts, real photos/video, the full menu,
+hours, address, and contact links were pulled from that export and rebuilt
+as plain HTML/CSS/JS.
 
-**To finish the migration**, export the real assets from the live site and
-drop them in as described below.
+- **Logo, hero video/photo, Yelp badge, full menu PDF** — the real files
+  from the export.
+- **Colors** — the site's actual brand palette: red `#DC043C`, green
+  `#18825A`, cream/gold/pink backgrounds.
+- **Fonts** — Oswald (headings), Poppins (body), Playball (script accents),
+  matching the font stack used by the original site, loaded from Google
+  Fonts.
+- **Copy, menu items/prices, hours, address, phone, social links** — carried
+  over as-is from the export.
 
 ## Project structure
 
 ```
-index.html          Home page (all sections: hero, about, services, gallery, testimonials, contact)
-404.html             Custom not-found page
-css/styles.css        All styling (CSS variables at the top control the color palette/fonts)
-js/main.js            Mobile nav, scroll animations, contact form status
-images/                Logo, favicon, and placeholder illustrations
-netlify.toml           Netlify build & header config
+index.html            One-page site: hero, menu, party tray, about, contact, hours/map
+404.html                Custom not-found page
+css/styles.css           All styling (CSS variables at the top hold the brand palette/fonts)
+js/main.js               Mobile nav, scroll animations, contact form status
+images/                   logo.png, hero-poster.jpg (video fallback), yelp-badge.png, favicon.svg
+video/hero.mp4            Hero background video (wok-cooking clip from the original site)
+files/flower-city-menu-2025.pdf   Full downloadable menu PDF
+netlify.toml              Netlify build & header config
 ```
 
-No build step is required — it's plain HTML/CSS/JS, so Netlify can deploy it
-as-is (`publish = "."`, empty build command, already set in `netlify.toml`).
+No build step is required — Netlify deploys it as-is (`publish = "."`,
+empty build command, already set in `netlify.toml`).
 
-## Swapping in the real content
+## Keeping content up to date
 
-1. **Logo** — replace `images/logo.svg` with the real logo. If it's a
-   raster file (PNG/JPG), save it as e.g. `images/logo.png` and update the
-   two `<img src="images/logo.svg">` references in `index.html` and the one
-   in `404.html`.
-2. **Photos / gallery** — replace `images/gallery-1.svg` … `gallery-6.svg`
-   with real photos. Easiest: save your photos with the same names but the
-   real extension (e.g. `gallery-1.jpg`) and update the `src` attributes in
-   the `#gallery` section and hero/about sections of `index.html`.
-3. **Background / hero image** — the hero currently uses a CSS gradient
-   plus `images/hero-pattern.svg`. To use a real photo background, add it
-   to `images/` and set it as a `background-image` on `.hero` in
-   `css/styles.css`.
-4. **Text content** — all copy (about text, services, testimonials, hours,
-   address, phone, email) is in `index.html` and clearly readable; update
-   it directly. Placeholder contact info (`(559) 000-0000`,
-   `123 Blossom Ave`, `hello@flowercityfresno.com`) should be replaced with
-   the real details.
-5. **Colors/fonts** — edit the CSS custom properties at the top of
-   `css/styles.css` (`:root { --rose: ...; --deep-green: ...; }` etc.) to
-   match the real brand palette once you have it (e.g. sampled from the
-   real logo).
+- **Menu prices/items** — edit the `<ul class="menu-list">` /
+  `menu-list-detailed` blocks in the `#menu` section of `index.html`, and
+  replace `files/flower-city-menu-2025.pdf` when a new PDF menu is issued
+  (keep the filename or update the link in the "Menu" section accordingly).
+- **Hours** — `.hours-list` in the `#find-us` section.
+- **Address/phone** — appears in the header, contact section, and find-us
+  section; also update the Google Maps embed `src` and the "Get Directions"
+  link if the address ever changes.
+- **Online ordering link** — currently points to
+  `https://www.flowercityfresno.net/dz3ryxih/flower-city-fresno-93704/order-online`
+  (the restaurant's existing third-party ordering system). Update every
+  `Order Now` / `Order Online` link in `index.html` if that changes.
+- **Photos** — only the hero wok video/photo and Yelp badge were included
+  as real assets (the export's `images/` folder mostly contained unrelated
+  stock/template assets bundled by the site builder, not real photos of
+  this restaurant). Add more real food/interior photos to `images/` and
+  reference them in the About or Gallery areas as they become available.
 
 ## Local preview
 
@@ -93,8 +97,14 @@ registrar) to point to Netlify per the instructions Netlify shows you.
 
 The contact form in `index.html` uses
 [Netlify Forms](https://docs.netlify.com/forms/setup/) (`data-netlify="true"`).
-Once deployed on Netlify, submissions will appear automatically under
+Once deployed on Netlify, submissions appear automatically under
 **Site → Forms** in the Netlify dashboard — no extra backend needed. It
-won't work in local preview (Netlify Forms only activates on a Netlify
+won't submit in local preview (Netlify Forms only activates on a Netlify
 deploy); `js/main.js` shows a friendly message instead of a broken
 submission when previewed locally.
+
+### A note on file size
+
+`files/flower-city-menu-2025.pdf` is ~17MB (the original PDF as provided).
+Netlify has no problem hosting it, but if load time for that link matters,
+consider re-exporting/compressing the PDF before your next update.
