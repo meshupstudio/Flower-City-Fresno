@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <rect width="500" height="500" fill="#F4E9DD"/>
+  <ellipse cx="250" cy="430" rx="120" ry="18" fill="#00000012"/>
+  <path d="M250 420 L250 260" stroke="#7C9473" stroke-width="6" fill="none"/>
+  <g transform="translate(250,220)">
+    <circle cx="-40" cy="10" r="34" fill="#D98A80"/>
+    <circle cx="40" cy="10" r="34" fill="#E7A79A"/>
+    <circle cx="0" cy="-30" r="36" fill="#C97A86"/>
+    <circle cx="-55" cy="-25" r="26" fill="#F4C05B"/>
+    <circle cx="55" cy="-25" r="26" fill="#F4C05B"/>
+    <circle cx="0" cy="10" r="20" fill="#8FA77B"/>
+  </g>
+  <text x="250" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#3E5C4299">Photo coming soon</text>
+</svg>

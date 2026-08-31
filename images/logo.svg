@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img" aria-label="Flower City Fresno logo">
+  <g transform="translate(6,10)">
+    <g transform="translate(30,30)">
+      <circle cx="0" cy="-16" r="10" fill="#D98A80"/>
+      <circle cx="15" cy="-8" r="10" fill="#E7A79A"/>
+      <circle cx="15" cy="8" r="10" fill="#D98A80"/>
+      <circle cx="0" cy="16" r="10" fill="#E7A79A"/>
+      <circle cx="-15" cy="8" r="10" fill="#D98A80"/>
+      <circle cx="-15" cy="-8" r="10" fill="#E7A79A"/>
+      <circle cx="0" cy="0" r="8" fill="#F4C05B"/>
+    </g>
+    <path d="M30 46 Q26 58 30 66" stroke="#7C9473" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="76" y="36" font-family="'Playfair Display', Georgia, serif" font-size="26" fill="#3E5C43" font-weight="700">Flower City</text>
+  <text x="76" y="60" font-family="'Jost', Arial, sans-serif" font-size="16" letter-spacing="4" fill="#D98A80">FRESNO</text>
+</svg>
