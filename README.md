@@ -28,7 +28,7 @@ index.html            One-page site: hero, menu, party tray, about, contact, hou
 404.html                Custom not-found page
 css/styles.css           All styling (CSS variables at the top hold the brand palette/fonts)
 js/main.js               Mobile nav, scroll animations, contact form status
-images/                   logo.png, hero-poster.jpg (video fallback), yelp-badge.png, favicon.svg
+images/                   logo.png, hero-poster.jpg (video fallback), yelp-badge.svg, favicon.svg
 video/hero.mp4            Hero background video (wok-cooking clip from the original site)
 files/flower-city-menu-2025.pdf   Full downloadable menu PDF
 netlify.toml              Netlify build & header config
