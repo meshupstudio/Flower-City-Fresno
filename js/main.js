@@ -39,20 +39,36 @@ if ('IntersectionObserver' in window) {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form: friendly inline confirmation for Netlify Forms
+// Contact form: submit via fetch so Netlify Forms doesn't navigate the
+// visitor away to its own default success page — stay on this page instead.
 const contactForm = document.querySelector('.contact-form');
 const formStatus = document.getElementById('form-status');
 if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '') {
-      // Netlify Forms only works once deployed; avoid a confusing failed
-      // fetch during local preview.
-      event.preventDefault();
-      if (formStatus) {
-        formStatus.textContent = 'Form submissions work once this site is deployed on Netlify.';
-      }
-      return;
-    }
+    event.preventDefault();
     if (formStatus) formStatus.textContent = 'Sending...';
+
+    const body = new URLSearchParams(new FormData(contactForm)).toString();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Form submission failed');
+        if (formStatus) {
+          formStatus.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
+        }
+        contactForm.reset();
+      })
+      .catch(() => {
+        if (formStatus) {
+          const isLocal = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+          formStatus.textContent = isLocal
+            ? 'Form submissions only work once this site is deployed on Netlify.'
+            : 'Sorry, something went wrong sending your message. Please call us instead.';
+        }
+      });
   });
 }
