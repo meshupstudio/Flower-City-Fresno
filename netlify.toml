@@ -2,6 +2,11 @@
   publish = "."
   command = ""
 
+# Cache-Control below intentionally stays short (not long-lived/immutable):
+# filenames here don't change when content does, so aggressive caching would
+# make edits invisible to returning visitors until a year-long cache expired.
+# Revisit once assets get content-hashed filenames.
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -12,14 +17,14 @@
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
