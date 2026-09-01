@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 64" width="210" height="64" role="img" aria-labelledby="yelpLogoTitle">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 64" width="226" height="64" role="img" aria-labelledby="yelpLogoTitle">
   <title id="yelpLogoTitle">Yelp</title>
-  <text x="0" y="46" font-family="'Poppins', Arial, sans-serif" font-weight="700" font-size="44" letter-spacing="-1" fill="#1A1A1A">yelp</text>
-  <g transform="translate(178,30)">
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(-6) scale(1.15)"/>
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(58) scale(0.72)"/>
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(120) scale(0.6)"/>
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(178) scale(0.85)"/>
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(233) scale(1.0)"/>
-    <path fill="#FF1A1A" d="M0 0 C-4 -4 -6 -12 -4 -22 C-3 -27 3 -27 4 -22 C6 -12 4 -4 0 0 Z" transform="rotate(297) scale(0.8)"/>
+  <text x="0" y="46" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="44" letter-spacing="-1" fill="#1A1A1A">yelp</text>
+  <text x="130" y="18" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="11" fill="#1A1A1A">&#174;</text>
+  <g transform="translate(190,30)">
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(-8) scale(1.05)"/>
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(50) scale(1.0)"/>
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(100) scale(0.5)"/>
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(150) scale(0.8)"/>
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(198) scale(0.9)"/>
+    <path fill="#D32323" d="M0 0 C-8 -9 -11 -20 -9 -31 C-8 -37 8 -37 9 -31 C11 -20 8 -9 0 0 Z" transform="rotate(258) scale(0.75)"/>
   </g>
 </svg>
