@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 44" width="168" height="44" role="img" aria-labelledby="yelpBadgeTitle">
+  <title id="yelpBadgeTitle">Read our reviews on Yelp</title>
+  <rect width="168" height="44" rx="22" fill="#D32323"/>
+  <g transform="translate(22,22)">
+    <path d="M0 -11 L2.4 -3.4 L10 -3.4 L3.8 1.2 L6.2 8.8 L0 4.2 L-6.2 8.8 L-3.8 1.2 L-10 -3.4 L-2.4 -3.4 Z" fill="#FFFFFF"/>
+  </g>
+  <text x="42" y="29" font-family="'Oswald', Arial, sans-serif" font-size="19" font-weight="600" letter-spacing="0.5" fill="#FFFFFF">Yelp Reviews</text>
+</svg>
