@@ -78,7 +78,42 @@ assets, jQuery-migrate shims) and won't work standalone. Instead:
 
 Repo: [GITHUB REPO]
 Branch: [BRANCH NAME]
-```
+
+Once deployed, walk through this checklist with me (each of these bit us
+during a real migration):
+
+1. CONTACT FORM — confirm it's detected under Site → Forms in the Netlify
+   dashboard. If the list is empty even after a successful deploy: check
+   that the production branch and publish directory in Netlify's build
+   settings actually match where index.html lives (a wrong branch/directory
+   deploys successfully but never serves the real form), and check for a
+   forms/post-processing detection toggle under Project configuration —
+   some Netlify project types require it enabled explicitly, not just the
+   `data-netlify`/`netlify` attribute on the form. Also submit the form for
+   real once detected: a plain HTML form with no JS interception does a
+   native browser POST, which Netlify redirects to its own generic
+   "success" page — implement the submit handler with `fetch()` and
+   `event.preventDefault()` instead, so the visitor stays on the page and
+   sees an inline confirmation.
+2. CACHING — if `netlify.toml` sets long/immutable Cache-Control on
+   css/js/images (common for performance), know that any later edit to
+   those files won't show up for returning visitors until the cache
+   expires, since the filename doesn't change when the content does. Keep
+   caching short (or unset) while the site is still being actively revised;
+   only go long-lived once assets get content-hashed filenames, or once the
+   client stops requesting changes.
+3. BRAND ASSETS (logos, icons) — if a real logo/icon file wasn't in the
+   original export (or the client wants a different one, e.g. a review
+   platform's badge), ask for it as an actual file attachment/drag-and-drop,
+   or as raw SVG markup pasted as text. A pasted/copied image in chat is
+   often not accessible as a real file in this environment — only usable as
+   a visual reference to hand-redraw from, which is a worse fallback.
+4. GIT/PR MECHANICS — if the repo was empty before this session, its first
+   pushed branch becomes the default branch, so there's no second branch to
+   open a PR against yet. If a PR is wanted, create a `main` branch first
+   (an orphan empty commit works), then reconcile histories (e.g. rebase
+   the feature branch onto it) before opening the PR — GitHub refuses a PR
+   between branches with no common history.
 
 ---
 
@@ -98,3 +133,11 @@ Branch: [BRANCH NAME]
   sandboxed Claude sessions typically can't reach `api.netlify.com` or hold
   Netlify credentials, so the deploy step needs to happen from the Netlify
   dashboard, not from Claude directly.
+- **The post-deploy checklist exists because every item on it actually
+  happened.** Forms silently failed to detect (wrong branch/publish dir at
+  first, and a detection toggle we didn't know existed); a submitted form
+  redirected visitors off-site to Netlify's own page until the submit
+  handler was rewritten to use `fetch`; an aggressive cache header quietly
+  hid every later logo/CSS/JS fix from anyone who'd already visited; and a
+  logo swap took several rounds because pasted chat images weren't
+  retrievable as files, only the literal pasted SVG markup was.
